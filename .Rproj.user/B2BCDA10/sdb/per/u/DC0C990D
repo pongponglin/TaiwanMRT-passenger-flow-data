@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "## R 爬蟲\n# xml Rcul\nlibrary(RCurl)\n\ngetURL(\"\")\nhtmlParse()\nxpathSApply()\ncontent() # 顯現\n\n# 先抓每篇文章的網址 再從每個網址去抓文章的內文 寫function() 每篇都存成一篇 設資料夾給他裝\n\n# \"https://www.ppt.cc/bbs/Food.indxz.html\"\n\ntmcn\ntm.map()\ninspect() # 預覽內文\nRwordseg\njiebaR\nsegmentCN()\nstopwords()\ntm_map()\nTermDocument\n\nwordcloud\nrwordCloud\nhtmlwidgets\nd3Cloud()\n\n\n\n",
+    "created" : 1490614410122.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3075350507",
+    "id" : "DC0C990D",
+    "lastKnownWriteTime" : 4,
+    "last_content_update" : 1490616289648,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

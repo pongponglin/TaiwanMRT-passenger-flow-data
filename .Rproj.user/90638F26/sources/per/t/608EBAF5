@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552887317197.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3505765256",
+    "id" : "608EBAF5",
+    "lastKnownWriteTime" : 1552819743,
+    "last_content_update" : 1552819743,
+    "path" : "~/nicole/Rcode/Github/TaiwanMRT-passenger-flow-data/nccu_mrtcomptition.R",
+    "project_path" : "nccu_mrtcomptition.R",
+    "properties" : {
+        "cursorPosition" : "448,0",
+        "docOutlineVisible" : "1",
+        "scrollLine" : "447"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

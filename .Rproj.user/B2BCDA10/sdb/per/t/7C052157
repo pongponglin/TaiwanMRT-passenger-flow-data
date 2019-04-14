@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: '算距離的 Package'\nauthor: \"ponponlin\"\ndate: \"May, 2, 2017\"\noutput:\n  html_document:\n    highlight: haddock\n    theme: readable\n---\n\n<br/>\n<br/>\n\n----------------------------------------------------------------\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(\n  message = FALSE,\n\twarning = FALSE\n  )\nlibrary(geosphere)\nlibrary(dplyr)\nlibrary(data.table)\nlibrary(maptools)\nlibrary(ggmap)\nlibrary(rgdal)\nlibrary(ggplot2)\nlibrary(gpclib)\nlibrary(RColorBrewer)\nlibrary(XML)\n```\n\n### geosphere\n> distm(x ,y , fun= \" \")\n\nx：經度，y：緯度，fun：代表計算距離的方式，計算兩個經緯度之間的最短距離。預設用法：WGS84，單位是公尺。\n\n#### 1. distHaversine\n這是預設的計算距離 fun ， According to the **haversine method**. This method assumes a spherical earth, ignoring ellipsoidal\neffects\n    \n#### 2. distVincentyEllipsoid\n較準確，大家都叫大圓距離。According to the **Vincenty (ellipsoid)** method. This method uses an ellipsoid and the results are very accurate.\n    \n#### 3. distVincentySphere\nAccording to the **Vincenty (sphere)** method. This method assumes a spherical earth, ignoring ellipsoidal effects and it is less accurate then the distVicentyEllipsoid method\n\n#### 4. distCosine \nAccording to the law of the cosines.This method assumes a spherical earth, ignoring ellipsoidal effects.\n\n```{r, echo=TRUE}\ndistHaversine(c(0,0), c(90,90))\ndistVincentyEllipsoid(c(0,0), c(90,90))\ndistVincentySphere(c(0,0), c(90,90));distCosine(c(0,0), c(90,90))\ndistm(c(0,0), c(90,90),fun = distHaversine);distm(c(0,0), c(90,90),fun=distVincentyEllipsoid)\n```\n\n<br/>\n\n-----------------------------------------\n\n### ggmap\n> mapdist(from, to, mode= \" \")\n\n用 Google map 計算最短距離\n\n* mode=`\"driving\"`, `\"walking\"`, `\"bicycling\"`\n\n```{r}\nmapdist(\"台北市\", \"台中市\", \"driving\") %>%\n  rbind(mapdist(\"台北市\", \"台中市\", \"walking\")) \nmapdist(\"台北市\", \"台中市\",\"bicycling\")\nmapdist(\"政治大學\", \"動物園站\", \"walking\")\nmapdist(c(\"121.576074 24.987516\"),c(\"121.579430 24.998259\"), \"walking\" )\n```\n\n```{r, eval=FALSE, include=FALSE}\n#### 算中心點的 function\nGetCentroidPoint <- function(SelectedCountries) {Polygon(SelectedCountries[c('long', 'lat')])@labpt}\ncentroids.f = by(subset(sfn.f, piece == 1), factor(subset(sfn.f, piece == 1)$id), GetCentroidPoint) \ncentroids.c = by(subset(sfn.c, piece == 1), factor(subset(sfn.c, piece == 1)$id), GetCentroidPoint) \n#### 中心點(新制 鄉鎮市區、縣)#####\ncentroids.f <- do.call(\"rbind.data.frame\", centroids.f)  \nnames(centroids.f) <- c('long', 'lat') \ncentroids.f$Country = row.names(centroids.f)\n\ncentroids.c <- do.call(\"rbind.data.frame\", centroids.c)  \nnames(centroids.c) <- c('long', 'lat') \ncentroids.c$Country = row.names(centroids.c)\n\n\n#把行列命名\ncountyA <- centroids.c$Country\ncountyB <- centroids.c$Country\n#排列組合\nda <- expand.grid(countyA,countyB)\n#算行車距離！！\ndriving.dist<-mapdist(c(paste(da[,1])),c(paste(da[,2])),'driving')\n#自己到自己的砍掉\ndriving.dist %>% filter(m>0) -> driving.dist\n\n```\n\n```{r, echo=FALSE}\nxml_df <- xmlToDataFrame(\"http://download.post.gov.tw/post/download/1050812_%E8%A1%8C%E6%94%BF%E5%8D%80%E7%B6%93%E7%B7%AF%E5%BA%A6%28toPost%29.xml\")\nhead(xml_df)\n```\n\n\n### Reference\n* [geospher](https://cran.r-project.org/web/packages/geosphere/geosphere.pdf)\n* [ggmap](https://cran.r-project.org/web/packages/ggmap/ggmap.pdf)\n* [經緯度轉換](http://card.url.com.tw/realads/map_latlng.php)\n* [行政區中心點經緯度](http://download.post.gov.tw/post/download/1050812_%E8%A1%8C%E6%94%BF%E5%8D%80%E7%B6%93%E7%B7%AF%E5%BA%A6%28toPost%29.xml)\n\n<br/>\n<br/>\n\n-----------------------------------------",
+    "created" : 1494420765153.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3005445153",
+    "id" : "7C052157",
+    "lastKnownWriteTime" : 1493715842,
+    "last_content_update" : 1493715842,
+    "path" : "~/nicole/R code/mission/mission06.Rmd",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 16,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

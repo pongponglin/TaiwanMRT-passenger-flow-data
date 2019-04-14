@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1552817695516.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4285153981",
+    "id" : "9C634BDB",
+    "lastKnownWriteTime" : 1504270688,
+    "last_content_update" : 1504270688,
+    "path" : "~/nicole/Rcode/Github/2017Taiwan-power-data/跨國黑客松.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "29,24",
+        "docOutlineVisible" : "1",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "\nlibrary(rgdal)\nlibrary(rgeos)\nlibrary(ggplot2)\nlibrary(maptools)\nlibrary(ggmap)\nlibrary(GGally)\n\n###############\n\nggplot() +\n  geom_point(data = mrt, aes(x=緯度, y=經度)) +\n  geom_point(data = r, aes(x=緯度, y=經度), size=0.2, color=\"red\")\n\n# 村里界圖\ntw <-readOGR(dsn=\"村里界圖\",layer=\"Village_NLSC_1050715\", stringsAsFactors = F,encoding = \"big5\")\nhead(tw@data)\ntw@polygons[[1]]\ntw@data %>% filter(V_Name != Substitute) %>% head\n\n# 把里跟區貼起來\n#tw@data <- tw@data %>% mutate(行政區域 = paste0(T_Name,Substitute)) \ntp.v <- tw[tw$C_Name %in% c(\"臺北市\", \"新北市\"),] %>% fortify(region = \"行政區域\") \n\nv <- ggplot(tp.v, aes(long,lat)) +\n  geom_polygon(data = tp.v, aes(long,lat), fill=NA, color = \"white\") \n\nv +\n  geom_point(data=n.mor.in.mean ,aes(x=經度, y=緯度 ,size = num),\n             colour = \"blue\",alpha=0.5)\n\nggplot() +\n  geom_point(data = Traingdata, aes(x=平均人口, y=流量, size=房價中位數, color=as.factor(住宅區) ), alpha=0.3) +\n  annotate(\"text\", x =Traingdata[Traingdata$平均人口>75000,7], y =Traingdata[Traingdata$平均人口>75000,3], \n           label =as.character(Traingdata[Traingdata$平均人口>75000,1]),family=\"STHeiti\", colour = \"black\", size=2) +\n  theme_grey(base_family=\"STHeiti\")\n\nggplot() +\n  geom_point(data = Traingdata[-68,], aes(x=平均人口*房價中位數, y=流量, color=as.factor(住宅區) ), alpha=0.7) +\n  annotate(\"text\", x=Traingdata[-68,][Traingdata$流量>2000 ,4]*Traingdata[-68,][Traingdata$流量>2000,7], y=Traingdata[Traingdata$流量>2000,3],\n           label =as.character(Traingdata[Traingdata$流量>2000,1]),family=\"STHeiti\", colour = \"black\", size=2) +\n  theme_grey(base_family=\"STHeiti\")\n\nplot(Traingdata$`15-64`, Traingdata$流量)\nplot( Traingdata$房價中位數, Traingdata$流量)\n",
+    "created" : 1495040855118.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "184716099",
+    "id" : "F0C80C41",
+    "lastKnownWriteTime" : 1495040909,
+    "last_content_update" : 1495040909848,
+    "path" : "~/nicole/R code/other/map.R",
+    "project_path" : "map.R",
+    "properties" : {
+        "tempName" : "Untitled3"
+    },
+    "relative_order" : 15,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

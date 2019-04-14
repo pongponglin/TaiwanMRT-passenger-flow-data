@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "##### read XML #####\nlibrary(XML)\nlibrary(methods)\nlibrary(dplyr)\n\nxnl_df <- xmlToDataFrame(\"O-A0001-001.xml\") #faild\n\n# 教學\nresult <- xmlParse(\"O-A0001-001.xml\")\nrootnote <- xmlRoot(result)\nrootsize <- xmlSize(rootnote)\nprint(rootsize)\nprint(rootnote[1]) #得到第一個note\n\n############\nclass(result)\nxmldata <- xmlSApply(rootnote,function(x) xmlSApply(x, xmlValue)) #拆開來變成list\nstr(xxmldata, max.level = 1)\nxxmldata[[9]]\nxmldata <- t(xmldata)#轉置成 data.frame\n\n\nxml_df <- xmldata[-c(1:8)] \n\n\nnames(xml_df[[1]])\nfunction(){}\n\nxml_df %>% map_df(function(x) {\n  \n  return()\n})\nxml_df[1]%>% as.data.frame() ->d # 成功拉～～～～\n\nxml_df %>% as.data.frame() %>% View()\n\n\n\n\n#### 雨量 #### 又跟上面的不一樣啊！！\nxml_rain <- xmlParse(\"C-B0025-001.xml\")\nxml_rain <- xmlToDataFrame(\"C-B0025-001.xml\") #faild\nrootrain <- xmlRoot(xml_rain)\nxmlSize(rootrain)\nxmlrdata <- xmlSApply(rootrain,function(x) xmlSApply(x, xmlValue)) #拆開來變成list\nxmlrdata <- t(xmlrdata)#轉置成 data.frame\n\n\n\n## success\n## 一層一層的形式\nxml_df <- xmlToDataFrame(\"http://download.post.gov.tw/post/download/1050812_%E8%A1%8C%E6%94%BF%E5%8D%80%E7%B6%93%E7%B7%AF%E5%BA%A6%28toPost%29.xml\")\nhead(xml_df)\n\n\nlibrary(tidyverse)\nlibrary(dplyr)\nlibrary(purrr)\nlibrary(stringr)\nd <- readLines(\"O-A0001-001.xml\")\n\n\n\n",
+    "created" : 1493541028433.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "793610740",
+    "id" : "816BF911",
+    "lastKnownWriteTime" : 1493616495,
+    "last_content_update" : 1493616495153,
+    "path" : "~/nicole/R code/other/xml.R",
+    "project_path" : "xml.R",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

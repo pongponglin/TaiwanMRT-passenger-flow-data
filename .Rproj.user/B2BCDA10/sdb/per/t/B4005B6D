@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "---\ntitle: \"捷運評估指標與環狀線預測\"\noutput: \n  flexdashboard::flex_dashboard:\n    source_code: embed\n---\n\n```{r setup, include=FALSE}\nknitr::opts_chunk$set(\n  message = FALSE,\n\twarning = FALSE\n  )\nlibrary(flexdashboard)\nlibrary(dplyr)\nlibrary(ggplot2)\n\n```\n\n目的{#motivation}\n=====================================   \n\n<h2 style=\"text-align:center;\">現行的捷運狀況</h2>\n\n目前捷運已經六線開通\n\n<h2 style=\"text-align:center;\">環狀線捷運預測</h2>\n\n現在正在興建的捷運環狀線，為來的營運狀況會是如何\n\n<h2 style=\"text-align:center;\">從何下手？</h2>\n\n探究人口特性與捷運流量之間的關係\n\n\n資料蒐集{#data-describe}\n=====================================   \n\n<p style=\"font-size:20px;\">整理有關人口特性相關的Open Data，分別整理成以每個捷運站為單位的資料進行串檔</p>\n\n- [捷運流量資料]()\n- [各村里戶籍人口資料]()\n- [實價登錄資料]()\n- [最小統計區分區資料]()\n- [公車總類數]()\n\n資料整合 {.storyboard}\n=====================================   \n\n### 捷運流量\n\n\n***\n\n<h4 style=\"text-align:center;\">__平日與假日的差異__</h4>\n\n\n### 捷運範圍切割\n\n- 看能不能用leafet\n\n*** \n\n<h4 style=\"text-align:center;\">__想法__</h4>\n\n\n### 最小統計區\n\n- 看能不能用leafet\n\n\n*** \n\n<h4 style=\"text-align:center;\">__計算方式__</h4>\n\n\n\n### 處理後資料型態\n\n\n評估指標{#index}\n=====================================   \n\nColumn {data-width=650}\n-----------------------------------------------------------------------\n\n### Chart A\n\n```{r}\n\n```\n\nColumn {data-width=350}\n-----------------------------------------------------------------------\n\n### Chart B\n\n```{r}\n\n```\n\n### Chart C\n\n```{r}\n\n```\n\n\n預測模型{#model}\n=====================================   \n\n\n心得{#review}\n=====================================   \n\nColumn {.tabset .tabset-fade}\n-------------------------------------\n\n### 芃彣\n\n### 培軒\n\n### 佩雯\n\n\n\nSidebar {.sidebar}\n============================\n\n<br/>\n\n大家好！我們是「冠軍隊」，\n此為參加[2017政大統計系資料競賽-政府開放資料](http://conference.nccu.edu.tw/actnews/content.php?Sn=145) 所做之報告書。\n\n#### 活動宗旨\n\n全球開放資料量急速成長，開放資料的分析應用有助於提升生活品質、創造經濟價值、促進政府效能\n\n#### 活動說明\n\n臺灣在英國開放知識基金會（Open Knowledge Foundation）公佈的2015年全球開放資料普查中排名第一。處身大資料時代的你，想一窺開放資料蘊藏之奧秘訊息嗎？本競賽鼓勵同學整合臺北捷運、中央氣象局、人事行政局等多項政府開放資料，發揮創意進行分析，發掘有價值的資訊。\n\n__冠軍隊組員__\n\n1. [林芃彣（Nicole）-<br>政大統計碩一]()\n2. [楊佩雯（Penny）-<br>政大統計碩一]()\n3. [黃培軒（Bacon）-<br>政大統計碩一]()\n\n> 比賽結果獲得亞軍\n> 2017.5.13 @NCCU\n",
+    "created" : 1498714499110.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "841371324",
+    "id" : "B4005B6D",
+    "lastKnownWriteTime" : 1498800231,
+    "last_content_update" : 1498800231228,
+    "path" : "~/nicole/R code/other/2017資料競賽_捷運.Rmd",
+    "project_path" : "2017資料競賽_捷運.Rmd",
+    "properties" : {
+        "docOutlineVisible" : "1",
+        "tempName" : "Untitled3"
+    },
+    "relative_order" : 15,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}
